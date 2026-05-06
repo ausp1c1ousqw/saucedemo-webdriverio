@@ -7,7 +7,7 @@ Feature: User authentication
 
   Scenario: Successful login with valid credentials
     When the user logs in as "standard user"
-    Then the products page should be displayed
+    Then the Product Page should be displayed
 
   Scenario: Login with invalid credentials
     When the user logs in as "invalid user"

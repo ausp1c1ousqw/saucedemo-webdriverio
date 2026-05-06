@@ -1,3 +1,2 @@
 /node_modules
-/artifacts
-local.wdio.conf.js
+/artifacts/**/*

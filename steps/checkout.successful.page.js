@@ -1,5 +1,5 @@
 import { checkoutSuccesfulPageAssertions } from "../assertions";
-import { Then } from "@wdio/cucumber-framework";
+import { Then } from "@cucumber/cucumber";
 
 Then("the checkout should be completed successfully", async () => {
   await checkoutSuccesfulPageAssertions.verifyCheckoutSuccessfulPage();

@@ -5,7 +5,7 @@ Feature: Cart badge counter
   So that I know how many products I selected
 
   Background:
-   Given the user logs in as "standard user"
+    Given the user logs in as "standard user"
 
   Scenario: Cart badge updates when product is added
     When the user adds the following products to the cart:

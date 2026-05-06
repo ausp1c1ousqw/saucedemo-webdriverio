@@ -6,7 +6,7 @@ Given("the user is on the checkout page", async () => {
   await checkoutStepOnePage.open();
 });
 
-When("the user submit checkout form with {string} personal information", async (infoType) => {
+When("the user submits checkout form with {string} personal information", async (infoType) => {
   await checkoutStepOnePage.submitCheckoutForm(infoType);
 });
 

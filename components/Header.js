@@ -44,6 +44,7 @@ class Header {
     await this.clickBurgerMenuButton();
     await this.clickLogoutLink();
   }
+  
   async waitUntilBadgeCountEquals(expected) {
     await waitUntil(
       async () => (await this.getCartBadgeCount()) === expected,

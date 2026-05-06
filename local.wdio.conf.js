@@ -1,27 +1,20 @@
 import { subscribeLoggerToProcessEvents } from "./framework/logger/index.js";
 import { loadEnv } from "./framework/utils/index.js";
 
-loadEnv(".env.ci");
+loadEnv(".env.local");
 
 subscribeLoggerToProcessEvents();
 
 export const config = {
   specs: ["./features/**/*.feature"],
   logLevel: "silent",
-  maxInstances: 3,
+  maxInstances: 1,
 
   capabilities: [
     {
       browserName: "chrome",
-      maxInstances: 3,
       "goog:chromeOptions": {
-        args: [
-          "--headless=new",
-          "--disable-gpu",
-          "--no-sandbox",
-          "--disable-dev-shm-usage",
-          "--window-size=1920,1080",
-        ],
+        args: ["--user-data-dir=C:\\chrome-wdio-profile"],
       },
     },
   ],
@@ -42,6 +35,7 @@ export const config = {
   ],
   cucumberOpts: {
     require: ["./steps/*.js", "./features/support/**/*.js"],
+    strict: true,
     tagExpression: "not @skip",
   },
 };

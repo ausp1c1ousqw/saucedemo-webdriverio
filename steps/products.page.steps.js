@@ -6,7 +6,7 @@ Given("the user is on the Product Page", async () => {
   await productPage.open();
 });
 
-Then("the products page should be displayed", async () => {
+Then("the Product Page should be displayed", async () => {
   await productPageAssertions.verifyProductPage();
 });
 
