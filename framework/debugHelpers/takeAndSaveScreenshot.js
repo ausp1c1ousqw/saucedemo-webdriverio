@@ -7,19 +7,19 @@ const debugDir = getDailyDebugDir();
 const screenshotsDir = ensureDirExists(`${debugDir}/screenshots`);
 
 export async function takeAndSaveScreenshot(testName) {
-  try {
-    const screenshot = await browser.takeScreenshot();
+	try {
+		const screenshot = await browser.takeScreenshot();
 
-    const screenshotName = generateTimestampedFileName(testName, "png");
-    const screenshotPath = path.join(screenshotsDir, screenshotName);
+		const screenshotName = generateTimestampedFileName(testName, "png");
+		const screenshotPath = path.join(screenshotsDir, screenshotName);
 
-    await writeFile(screenshotPath, screenshot, "base64");
+		await writeFile(screenshotPath, screenshot, "base64");
 
-    logger.info(`Screenshot path: ${screenshotPath}`);
+		logger.info(`Screenshot path: ${screenshotPath}`);
 
-    return screenshot;
-  } catch (err) {
-    logger.warn(`Failed to take screenshot:  ${err.stack || err.message}`);
-    return null;
-  }
+		return screenshot;
+	} catch (err) {
+		logger.warn(`Failed to take screenshot:  ${err.stack || err.message}`);
+		return null;
+	}
 }

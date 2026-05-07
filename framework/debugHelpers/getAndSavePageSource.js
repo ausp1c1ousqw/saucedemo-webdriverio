@@ -7,19 +7,19 @@ const debugDir = getDailyDebugDir();
 const pageSourceDir = ensureDirExists(`${debugDir}/page_sources`);
 
 export async function getAndSavePageSource(testName) {
-  try {
-    const pageSource = await browser.getPageSource();
+	try {
+		const pageSource = await browser.getPageSource();
 
-    const pageSourceName = generateTimestampedFileName(testName, "html");
-    const pageSourcePath = path.join(pageSourceDir, pageSourceName);
+		const pageSourceName = generateTimestampedFileName(testName, "html");
+		const pageSourcePath = path.join(pageSourceDir, pageSourceName);
 
-    await writeFile(pageSourcePath, pageSource, "utf-8");
+		await writeFile(pageSourcePath, pageSource, "utf-8");
 
-    logger.info(`Page Source path: ${pageSourcePath}`);
+		logger.info(`Page Source path: ${pageSourcePath}`);
 
-    return pageSource;
-  } catch (err) {
-    logger.warn(`Failed to get page source: ${err.stack || err.message}`);
-    return null;
-  }
+		return pageSource;
+	} catch (err) {
+		logger.warn(`Failed to get page source: ${err.stack || err.message}`);
+		return null;
+	}
 }

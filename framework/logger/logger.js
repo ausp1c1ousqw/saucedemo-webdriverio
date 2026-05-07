@@ -10,28 +10,28 @@ const logDir = ensureDirExists(`${debugDir}/logs`);
 
 const timestampFormat = "YYYY-MM-DD HH:mm:ss.SSS";
 const logFormat = winston.format.printf(({ timestamp, level, message, stack }) => {
-  return stack
-    ? `${timestamp}|${process.pid}|${level.toUpperCase()}|${message}\n${stack}`
-    : `${timestamp}|${process.pid}|${level.toUpperCase()}|${message}`;
+	return stack
+		? `${timestamp}|${process.pid}|${level.toUpperCase()}|${message}\n${stack}`
+		: `${timestamp}|${process.pid}|${level.toUpperCase()}|${message}`;
 });
 
 const transports = [];
 if (logToConsole) transports.push(new winston.transports.Console());
 if (logToFile)
-  transports.push(
-    new winston.transports.File({
-      filename: `${logDir}/general.log`,
-    }),
-  );
+	transports.push(
+		new winston.transports.File({
+			filename: `${logDir}/general.log`,
+		}),
+	);
 
 const logger = winston.createLogger({
-  level: logLevel,
-  format: winston.format.combine(
-    winston.format.timestamp({ format: timestampFormat }),
-    winston.format.errors({ stack: true }),
-    logFormat,
-  ),
-  transports,
+	level: logLevel,
+	format: winston.format.combine(
+		winston.format.timestamp({ format: timestampFormat }),
+		winston.format.errors({ stack: true }),
+		logFormat,
+	),
+	transports,
 });
 
 export { logger };

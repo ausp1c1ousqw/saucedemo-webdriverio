@@ -3,6 +3,6 @@ import { cartPageAssertions } from "../assertions";
 import { cartPage } from "../pages";
 
 Then(/^the cart should contain (\d+) products?$/, async (number) => {
-  await cartPage.open();
-  await cartPageAssertions.verifyNumberOfProductsInCart(number);
+	await cartPage.open();
+	await cartPageAssertions.verifyNumberOfProductsInCart(number);
 });
