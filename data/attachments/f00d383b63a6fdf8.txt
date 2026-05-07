@@ -1,0 +1,23 @@
+2026-05-07 08:50:33.213|2875|INFO|Scenario Started: Login with locked out user
+2026-05-07 08:50:33.214|2875|INFO|Build full URL from path: /
+2026-05-07 08:50:33.214|2875|INFO|Navigate to: "https://www.saucedemo.com/"
+2026-05-07 08:50:33.278|2875|INFO|Input 'Username Field' :: Clearing
+2026-05-07 08:50:33.359|2875|INFO|Input 'Username Field' :: Typing 'locked_out_user'
+2026-05-07 08:50:33.498|2875|INFO|Input 'Password Field' :: Clearing
+2026-05-07 08:50:33.575|2875|INFO|Input 'Password Field' :: Typing 'secret_sauce'
+2026-05-07 08:50:33.691|2875|INFO|Button 'Login Button' :: Clicking
+2026-05-07 08:50:33.884|2875|INFO|Label 'Login Error' :: Getting text
+2026-05-07 08:50:33.939|2875|INFO|Label 'Login Error' :: Text of the element: 'Epic sadface: Sorry, this user has been locked out.'
+2026-05-07 08:50:33.940|2875|INFO|Verify Login Error
+Actual: 'Epic sadface: Sorry, this user has been locked out.' 
+Expected: 'Epic sadface: Sorry, this user has been locked ou'
+2026-05-07 08:50:33.947|2875|ERROR|AssertionError: Verify Login Error: expected 'Epic sadface: Sorry, this user has be…' to equal 'Epic sadface: Sorry, this user has be…'
+    + expected - actual
+
+    -Epic sadface: Sorry, this user has been locked out.
+    +Epic sadface: Sorry, this user has been locked ou
+
+    at assertWithLogging (file:///home/runner/work/saucedemo-webdriverio/saucedemo-webdriverio/framework/gui/utils/assertWithLogging.js:10:20)
+    at LoginPageAssertions.verifyLoginError (file:///home/runner/work/saucedemo-webdriverio/saucedemo-webdriverio/assertions/LoginPageAssertions.js:9:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async World.<anonymous> (file:///home/runner/work/saucedemo-webdriverio/saucedemo-webdriverio/steps/login.page.steps.js:10:2)
